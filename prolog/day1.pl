@@ -12,7 +12,7 @@ wrote(ian_m_banks,the_hydrogen_sonata).
 wrote(ian_m_banks,consider_phlebas).
 wrote(peter_f_hamilton,the_nights_dawn_trilogy).
 
-/** | ?- wrote(china_mieville, What).
+/*** | ?- wrote(china_mieville, What).
 a */
 
 plays(john, guitar).
