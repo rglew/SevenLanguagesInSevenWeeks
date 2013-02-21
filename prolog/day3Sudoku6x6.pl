@@ -17,7 +17,7 @@ sudoku6(Puzzle, Solution) :-
 				  S61, S62, S63, S64, S65, S66], 
                   
         fd_domain(Solution, 1, 6),
-		fd_labeling(Solution), 
+		 
         
         Row1 = [S11, S12, S13, S14, S15, S16],
         Row2 = [S21, S22, S23, S24, S25, S26],
@@ -42,8 +42,9 @@ sudoku6(Puzzle, Solution) :-
 		
         valid([Row1, Row2, Row3, Row4, Row5, Row6, 
                Col1, Col2, Col3, Col4, Col5, Col6,
-               Square1, Square2, Square3, Square4, Square5, Square6]).
+               Square1, Square2, Square3, Square4, Square5, Square6]),
         
+		fd_labeling(Solution).
 /* USAGE
 sudoku6([3,_,_,_,_,4,
          _,_,4,3,_,_,
@@ -53,5 +54,6 @@ sudoku6([3,_,_,_,_,4,
          1,_,_,_,_,2], Solution).
 
 sudoku6([3,_,_,_,_,4,_,_,4,3,_,_,_,3,_,_,6,_,_,4,_,_,1,_,_,_,2,1,_,_,1,_,_,_,_,2],Solution).
+sudoku6([1,_,2,_,_,5,_,5,4,_,1,_,_,3,_,1,6,_,5,_,_,2,_,6,_,6,1,_,2,_,3,_,_,4,5,_],Solution).
 
 */
