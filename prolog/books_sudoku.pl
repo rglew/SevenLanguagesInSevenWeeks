@@ -39,3 +39,4 @@ sudoku(Puzzle, Solution) :-
                Col1, Col2, Col3, Col4, 
                Square1, Square2, Square3, Square4]).
         
+% -- sudoku([_, _, 2, 3, _, _, _, _, _, _, _, _, 3, 4, _, _],Solution).
