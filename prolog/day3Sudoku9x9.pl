@@ -57,7 +57,8 @@ sudoku9(Puzzle, Solution) :-
                Col1, Col2, Col3, Col4, Col5, Col6, Col7, Col8, Col9,
                Square1, Square2, Square3, Square4, Square5, Square6, Square7, Square8, Square9]),
         
-		fd_labeling(Solution).
+		fd_labeling(Solution),
+		prettier_print(Solution).
 
 /* USAGE
 
@@ -65,3 +66,28 @@ sudoku9([3,4,1,_,6,_,8,7,_,5,7,_,_,_,1,_,6,_,9,_,_,_,_,_,1,_,5,2,6,_,_,_,4,_,_,_
 
 */
 
+prettier_print([]).
+prettier_print(Solution) :- prettier_print(0, Solution).
+
+prettier_print(0, Solution) :- 
+    write('+-----------------------+'),nl, 
+    prettier_print(1, Solution).
+prettier_print(4, Solution) :- 
+    write('¦-------+-------+-------¦'),nl, 
+    prettier_print(5, Solution).
+prettier_print(8, Solution) :- 
+    write('¦-------+-------+-------¦'),nl, 
+    prettier_print(9, Solution).
+prettier_print(12, []) :- 
+    write('+-----------------------+'),nl.
+
+prettier_print(N, [Col1, Col2, Col3, Col4, Col5, Col6, Col7, Col8, Col9 | Solution]) :- 
+    member(N, [1,2,3,5,6,7,9,10,11]),
+    %N =\= 0, N =\= 4, N =\= 8, N =\= 13,
+    % note to self about above: remember, prolog's pattern matching isn't
+    % like pattern matching in other languages
+
+    format('¦ ~d ~d ~d ¦ ~d ~d ~d ¦ ~d ~d ~d ¦~n', [Col1, Col2, Col3, Col4, Col5, Col6, Col7, Col8, Col9]), 
+    succ(N, N1),
+    prettier_print(N1, Solution).
+	
