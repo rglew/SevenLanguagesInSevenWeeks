@@ -37,6 +37,7 @@ return("draw")
 val game = new TicTac
 
 var status = game.status(("X","O","X","X","X","X","O","O","X"))
+println(status)
 
 
 
