@@ -6,23 +6,24 @@
 
 // Bonus problem: Let two players play tic-tac-toe.
 
+import scala.collection.mutable.Map
 
 class TicTac {
 
 var board = List()
 
-def status(board:List()):String = {
+def status(board:List[String]):String = {
 
-val winningCombos = ((1,2,3),(4,5,6),(7,8,9),(1,4,7),(2,5,8),(3,6,9),(1,5,9),(3,5,7))
+val winningCombos: List[List[Int]] = List(List(1,2,3),List(4,5,6),List(7,8,9),List(1,4,7),List(2,5,8),List(3,6,9),List(1,5,9),List(3,5,7))
 
-forEach combo in winningCombos{
-if board(combo(1)) == board(combo(2) == board(combo(3)) then return("winner = " && combo(1))
+winningCombos.foreach{ combo =>
+if (board(combo(1)) == board(combo(2)) == board(combo(3))) {return("winner = " + combo(1))}
 }
 
 // no winners
 
-foreach position in board{
-if position == "_" then return("not finished")
+board.foreach{position =>
+if (position == "_") {return("not finished")}
 }
 //game is finished - draw
 
@@ -34,9 +35,15 @@ return("draw")
 
 }
 
+
+object Main {
+  def main(args: Array[String]) {
 val game = new TicTac
 
-var status = game.status(("X","O","X","X","X","X","O","O","X"))
+var status = game.status(List("X","O","X","X","X","X","O","O","X"))
+println(status)
+}
+}
 
 
 
@@ -55,8 +62,7 @@ var status = game.status(("X","O","X","X","X","X","O","O","X"))
 
 
 
-import scala.collection.mutable.Map
-
+/*
 class SymbolPrinter(s:Symbol) {
 	def print():String = {
 		if (s == 'Blank') { return " " }
@@ -346,6 +352,7 @@ def getPageInfoSequentially2() = {
 	}
 }
 
+
 def getPageInfoConcurrently2() = {
 	var caller = self
 
@@ -368,3 +375,5 @@ timeMethod2 { getPageInfoSequentially2 }
 println("")
 println("Concurrent run: ")
 timeMethod2 { getPageInfoConcurrently2 }
+
+*/
