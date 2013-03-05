@@ -1,6 +1,7 @@
 -module(day1).
 -compile(export_all).
 %% using -import is bad form %%
+%% shouldn't normally export all either %%
 
 
 % wordcount/1
@@ -16,7 +17,7 @@ wordcount([C1], Count) when C1 =/= $\  ->
 % End of a word. Count it.
 wordcount([C1, C2|Rest], Count) when C1 =/= $\ , C2 =:= $\  ->
     wordcount([C2|Rest], Count + 1);
-% Not the end of a word. Don't count it. (Seems erlang needs all its cases covered - doesn't do "no" like prolog)
+% Not the end of a word. Don't count it. (Seems erlang needs all its cases covered - doesn't do "no" like prolog, does "error")
 wordcount([_|Rest], Count) ->
     wordcount(Rest, Count).
 	
