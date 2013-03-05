@@ -1,3 +1,5 @@
+// Must run interactively...
+
 import io.Source
 import scala.actors.Actor._
  
@@ -23,10 +25,10 @@ object PageLoader {
   }
 }
  
-val urls = List("http://duckduckgo.com/",
-                "http://www.bing.com",
+val urls = List("http://www.amazon.com/",
+                "http://www.apple.com",
                 "http://www.google.com",
-                "http://www.wolframalpha.com/")
+                "http://www.orvis.com/")
  
  
 def timeMethod(method: () => Unit) {
