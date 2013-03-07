@@ -32,6 +32,7 @@ count2ten(I) when I =:= 10 ->
 	I;
 % not done before 10
 count2ten(I) when I < 10 -> 
+	io:fwrite(I,[]);
 	count2ten(I+1).
 
 
