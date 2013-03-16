@@ -1,3 +1,6 @@
+; Code is not mine - shamelessly stolen from here - only included for completeness for Clojure Day 3
+; http://blog.wakatta.jp/blog/2011/11/13/seven-languages-in-seven-weeks-clojure-day-3/
+
 (def barber (agent 0))
 
 (def waiting-room (atom 3))
@@ -39,3 +42,4 @@
   (Thread/sleep max)
   @barber)
   
+  ;USAGE (start 10000)

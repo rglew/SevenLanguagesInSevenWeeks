@@ -49,3 +49,27 @@
   "Show the balance of all accounts"
   (dotimes [i (count bank)]
       (println (str "Account " i ": " (bank-balance bank i)))))
+	  
+	 
+; USAGE
+
+;; create the bank
+(def bank (make-bank 3))
+
+;; put some money in
+(dosync (bank-credit bank 0 100))
+
+;; show the balances
+(bank-balances bank)
+
+;; a first transfer
+(dosync (bank-transfer bank 0 1 75))
+
+;; show the balances
+(bank-balances bank)
+
+;; not enough fund, so it will fail
+(dosync (bank-transfer bank 0 2 75))
+
+;; and indeed, the balances have not changed
+(bank-balances bank)
