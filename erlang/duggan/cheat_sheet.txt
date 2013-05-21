@@ -1,0 +1,28 @@
+dialyzer --build_plt --apps stdlib kernel erts
+
+make:all().
+
+c(Module). % Compile, purge and reload
+
+application:load(chat).
+
+
+Possible extension topics:
+Add channels - /join to main hub spawns temporary one-for-one server under
+channel_sup
+erld
+
+
+
+Time:
+Intro - 5
+Demo basic chat server and show problems - 10
+OTP Runthrough - 15
+Convert client process to gen_server - 30
+Run through async_tcp_listener - 5
+Show appmon - 5
++ Crash processes - 0
+Demo logger/gen_event - 15
+Run through handler_guard 
+Make changes/show hot code loading (c/1)
+Dialyzer
